@@ -15,7 +15,7 @@ This implementation differs from classic event emitter implementations because i
 ```js
 "use strict";
 
-const Subject = require('olvlvl-subject').Subject
+const Subject = require('olvlvl-subject')
 
 // create an event type
 const MyEvent = Subject.createEvent(function (param1, param2) {

@@ -1,7 +1,7 @@
 "use strict";
 
 const expect = require('chai').expect
-const Subject = require('../index').Subject
+const Subject = require('../index')
 
 describe('#subject', () => {
 

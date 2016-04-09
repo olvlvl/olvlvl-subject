@@ -200,9 +200,9 @@ Subject.prototype = {
 
 Object.defineProperty(Subject, 'createEvent', { value: createEvent })
 
-var exports
+var module
 
-if (exports)
+if (module)
 {
-    exports.Subject = Subject
+    module.exports = Subject
 }

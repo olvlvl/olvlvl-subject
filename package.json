@@ -1,0 +1,27 @@
+{
+  "name": "olvlvl-subject",
+  "version": "0.0.1",
+  "description": "Implements the subject/observer pattern",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:olvlvl/olvlvl-subject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/olvlvl/olvlvl-subject/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "keywords": [
+    "event",
+    "subject",
+    "observer"
+  ],
+  "author": "Olivier Laviale <olivier.laviale@gmail.com> (http://olvlvl.com)",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}

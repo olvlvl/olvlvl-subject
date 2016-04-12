@@ -65,20 +65,6 @@ function retrieveNameFromInstance(event)
 }
 
 /**
- * Creates an event constructor given a name and a constructor.
- *
- * @param {function} constructor
- *
- * @returns {function}
- */
-function createEvent(constructor)
-{
-    constructor[NAME_PROPERTY] = Symbol("Event symbol")
-
-    return constructor
-}
-
-/**
  * Return the observers array.
  *
  * @protected
@@ -110,15 +96,21 @@ function getObservers(subject, name) {
     return observers[name]
 }
 
-/**
- * @constructor
- */
-function Subject()
+class Subject
 {
+    /**
+     * Creates an event constructor given a name and a constructor.
+     *
+     * @param {function} constructor
+     *
+     * @returns {function}
+     */
+    static createEvent(constructor)
+    {
+        constructor[NAME_PROPERTY] = Symbol("Event symbol")
 
-}
-
-Subject.prototype = {
+        return constructor
+    }
 
     /**
      * Attach an observer.
@@ -128,8 +120,8 @@ Subject.prototype = {
      *
      * @return {Subject}
      */
-    observe: function (constructor, callback) {
-
+    observe(constructor, callback)
+    {
         const symbol = retrieveNameFromConstructor(constructor)
         const observers = getObservers(this, symbol)
 
@@ -141,7 +133,7 @@ Subject.prototype = {
         observers.push(callback)
 
         return this
-    },
+    }
 
     /**
      * Detach an observer.
@@ -150,8 +142,8 @@ Subject.prototype = {
      *
      * @return {Subject}
      */
-    unobserve: function (callback) {
-
+    unobserve(callback)
+    {
         const observers = getObservers(this, null)
 
         for (let type of Object.getOwnPropertySymbols(observers))
@@ -168,7 +160,7 @@ Subject.prototype = {
         }
 
         return this
-    },
+    }
 
     /**
      * Notify observers of a change.
@@ -177,8 +169,8 @@ Subject.prototype = {
      *
      * @return {Subject}
      */
-    notify: function (event) {
-
+    notify(event)
+    {
         const name = retrieveNameFromInstance(event)
         const observers = getObservers(this, name)
 
@@ -197,8 +189,6 @@ Subject.prototype = {
         return this
     }
 }
-
-Object.defineProperty(Subject, 'createEvent', { value: createEvent })
 
 var module
 

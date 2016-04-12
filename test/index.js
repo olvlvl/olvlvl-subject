@@ -1,6 +1,7 @@
 "use strict";
 
 const expect = require('chai').expect
+const mixin = require('olvlvl-mixin')
 const Subject = require('../index')
 
 describe('#subject', () => {
@@ -11,12 +12,10 @@ describe('#subject', () => {
 
     })
 
-    function MySubject()
+    class MySubject extends mixin(Object, Subject)
     {
 
     }
-
-    Object.assign(MySubject.prototype, Subject.prototype)
 
     const instance = new MySubject()
 

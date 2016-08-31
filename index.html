@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var module = {}
+    </script>
+    <script src="node_modules/olvlvl-mixin/index.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+
+<script>
+
+    "use strict";
+
+    const Event = Subject.createEvent(function () {
+
+    })
+
+    class A extends mixin(Object, Subject)
+    {
+
+    }
+
+    console.log(A, Event)
+
+    const a = new A
+
+    a.observe(Event, function (ev) {
+
+        console.log('event:', ev)
+
+    })
+
+    a.notify(new Event)
+
+    /*
+    class A
+    {
+
+    }
+
+    console.log(Subject.prototype.propertyIsEnumerable('notify'))
+
+    const properties = {}
+
+    for (let property of Object.getOwnPropertyNames(Subject.prototype)) {
+        console.log(property)
+
+        properties[property] = { value: Subject.prototype[property] }
+    }
+
+    Object.defineProperties(A.prototype, properties)
+
+    const a = new A
+
+    console.log(A, a)
+
+    console.log(a.notify('madonna'))
+
+    /*
+    for (let k in Subject.prototype) {
+        console.log(k)
+    }
+
+    function A() {
+
+    }
+
+    A.prototype = {
+
+        a: function() {
+
+        }
+
+    }
+
+    class B {
+
+        a() {
+
+        }
+
+    }
+
+    for (let k in B.prototype) {
+        console.log(k)
+    }
+
+//    const C = Object.assign({}, B.prototype)
+//
+//    console.log(A, B, C)
+
+    /*
+    const Event1 = Subject.createEvent(function (value) {
+
+        this.value = value
+
+    })
+
+    function MySubject()
+    {
+
+    }
+
+    console.log(MySubject.prototype, Subject.prototype)
+
+    Object.assign(MySubject.prototype, Subject.prototype)
+
+    const instance = new MySubject()
+
+    console.log(Event1, Subject, instance)
+    */
+
+</script>
+
+</body>
+</html>

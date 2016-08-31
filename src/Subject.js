@@ -1,5 +1,3 @@
-'use strict';
-
 const OBSERVERS_PROPERTY = Symbol("Subject observers")
 const NAME_PROPERTY = Symbol("Subject event name")
 
@@ -96,7 +94,7 @@ function getObservers(subject, name) {
 	return observers[name]
 }
 
-var Subject = class
+export default class
 {
 	/**
 	 * Creates an event constructor given a name and a constructor.
@@ -189,6 +187,3 @@ var Subject = class
 		return this
 	}
 }
-
-module.exports = Subject;
-//# sourceMappingURL=index.js.map
